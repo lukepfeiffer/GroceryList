@@ -28,7 +28,6 @@ public class ListTest {
 	
 	@Test
 	public void isFullTest(){
-		System.out.println(list.isFull());
 		assertEquals(true, list.isFull());
 	}
 	
