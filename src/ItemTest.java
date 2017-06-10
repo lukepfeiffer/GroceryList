@@ -53,7 +53,5 @@ public class ItemTest {
 		assertEquals(item.getName(), expectedName);
 		assertEquals(item.getQuantity(), expectedQuantity);
 	}
-	
-	
 
 }

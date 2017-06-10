@@ -54,7 +54,9 @@ public class List {
 	}
 	
 	public void addItem(Item item){
-		
+		if( this.isFull() ){
+			ArrayHelper.doubleArraySize(this.items);
+		}
 	}
 	
 	public boolean isFull(){

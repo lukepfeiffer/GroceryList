@@ -9,4 +9,18 @@ public class ArrayHelper {
 		
 		return returnArray;	
 	}
+	
+	
+	public static int nextEmptyIndex(Item [] items){
+		int index = -1;
+		
+		for(int i = 0; i < items.length; ++i){
+			if(items[i] == null){
+				index = i;
+				break;
+			}
+		}
+		
+		return index;
+	}
 }
