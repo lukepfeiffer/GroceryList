@@ -27,15 +27,15 @@ public class ListTest {
 	}
 	
 	@Test
+	public void isFullTest(){
+		System.out.println(list.isFull());
+		assertEquals(true, list.isFull());
+	}
+	
+	@Test
 	public void addItem(){
 		Item itemFour = new Item("Caramel", "1oz");
 		list.addItem(itemFour);
 		assertEquals(itemFour, list.getItems()[3]);
 	}
-	
-	@Test
-	public void doubleArraySize(){
-		
-	}
-
 }

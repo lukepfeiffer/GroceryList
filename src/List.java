@@ -57,6 +57,18 @@ public class List {
 		
 	}
 	
+	public boolean isFull(){
+		Item [] items = this.items;
+		int length = items.length;
+		
+		if(items[length-1] == null){
+			return false;
+		} else {
+			return true;
+		}
+		
+	}
+	
 	public String toString(){
 		this.alphabetizeItems();
 
