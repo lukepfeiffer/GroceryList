@@ -11,7 +11,7 @@ public class ListTest {
 	
 	@Test
 	public void toStringTest() {
-		String expected = "Long list\n\tApple, 5lbs\n\tBanana, 10lbs\n\tCarrots, 5lbs\n\n\tBudget: " 
+		String expected = "Long list\n\t1. Apple, 5lbs\n\t2. Banana, 10lbs\n\t3. Carrots, 5lbs\n\n\tBudget: " 
 	                      + 100.22;
 
 		assertEquals(expected, list.toString());
@@ -36,5 +36,16 @@ public class ListTest {
 		Item itemFour = new Item("Caramel", "1oz");
 		list.addItem(itemFour);
 		assertEquals(itemFour, list.getItems()[3]);
+	}
+	
+	@Test
+	public void finalIndexTest(){
+		list.setItems(ArrayHelper.doubleArraySize(list.getItems() ) );
+		assertEquals(list.finalValidIndex(), 3);
+		
+		Item [] newItems = new Item[3];
+		list.setItems(newItems);
+		assertEquals(list.finalValidIndex(), 0);
+
 	}
 }

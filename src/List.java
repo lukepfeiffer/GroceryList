@@ -41,15 +41,17 @@ public class List {
 		int length = this.items.length;
 		Item tempItem;
 		
-		for (int i = 0; i < length - 1; i++) {
-			for (int j = 0; j < length - i - 1; j++) {
-				if (items[j + 1].getName().compareTo(items[j].getName()) < 0) {
-					tempItem = items[j];
-					items[j] = items[j + 1];
-					items[j + 1] = tempItem;
-				}
-			}
-		}
+		if(items[0] != null && items[1] != null){
+		    for (int i = 0; i < length - 1; i++) {
+			    for (int j = 0; j < length - i - 1; j++) {
+		    		if (items[j + 1].getName().compareTo(items[j].getName()) < 0) {
+			    		tempItem = items[j];
+			    		items[j] = items[j + 1];
+			    		items[j + 1] = tempItem;
+			    	}
+			    }
+		    }
+	    }
 		return items;
 	}
 	
@@ -76,17 +78,31 @@ public class List {
 	public String toString(){
 		this.alphabetizeItems();
 
-		Item [] items = this.items;
-		int length = this.items.length;
+		Item[] items = this.items;
+		int length = this.finalValidIndex() + 1;
 		String returnString = "";
 		returnString += this.name + "\n";
-		
-		for(int i = 0; i < length; ++i){
-			returnString += "\t" + items[i].toString() + "\n";
+		if (items[0] != null){
+		    for(int i = 0; i < length; ++i){
+		    	returnString += "\t" + (i+1) + ". " + items[i].toString() + "\n";
+		    } 
 		}
 		
 		returnString += "\n\tBudget: " + this.getBudget();
 		
 		return returnString;
+	}
+	
+	public int finalValidIndex(){
+		int index = this.items.length - 1;
+		for(int i = 0; i < this.items.length; ++i){
+			if(this.items[i] == null){
+				index = i;
+				break;
+			} else {
+				index = this.items.length - 1;
+			}
+		}
+		return index;
 	}
 }
